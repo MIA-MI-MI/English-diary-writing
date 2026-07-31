@@ -31,11 +31,11 @@ export async function POST(request: Request) {
     const correction = parseCorrectionResponse(response)
 
     if (diaryId) {
-      const { error } = await supabase
-        .from('diaries')
-      .update({ correction_result: correction as any })
-        .eq('id', diaryId)
-        .eq('user_id', user.id)
+      const { error } = await (supabase
+  .from('diaries') as any)
+  .update({ correction_result: correction })
+  .eq('id', diaryId)
+  .eq('user_id', user.id)
 
       if (error) {
         console.error('Update diary error:', error)
