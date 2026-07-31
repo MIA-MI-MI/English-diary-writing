@@ -30,7 +30,7 @@ export async function POST(request: Request) {
         .order('created_at', { ascending: false })
         .limit(10)
 
-      diariesContent = diaries?.map(d => d.content).join('\n\n---\n\n') || ''
+      diariesContent = (diaries as any)?.map((d: any) => d.content).join('\n\n---\n\n') || ''
     } else {
       const { data: diaries } = await supabase
         .from('diaries')
@@ -39,7 +39,7 @@ export async function POST(request: Request) {
         .order('created_at', { ascending: false })
         .limit(10)
 
-      diariesContent = diaries?.map(d => d.content).join('\n\n---\n\n') || ''
+     diariesContent = (diaries as any)?.map((d: any) => d.content).join('\n\n---\n\n') || ''
     }
 
     if (!diariesContent) {
