@@ -33,7 +33,7 @@ export async function POST(request: Request) {
     if (diaryId) {
       const { error } = await supabase
         .from('diaries')
-        .update({ correction_result: correction })
+      .update({ correction_result: correction as any })
         .eq('id', diaryId)
         .eq('user_id', user.id)
 
