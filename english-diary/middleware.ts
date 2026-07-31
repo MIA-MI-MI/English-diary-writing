@@ -1,11 +1,8 @@
-import { updateSession } from './lib/supabase/middleware'
-
-export async function middleware(request: any) {
-  return await updateSession(request)
+// 暂时禁用 middleware
+export async function middleware() {
+  return undefined
 }
 
 export const config = {
-  matcher: [
-    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
-  ],
+  matcher: [],
 }
